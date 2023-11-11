@@ -1,0 +1,23 @@
+import { useMemo } from "react";
+
+export const useSortedTasks = (tasks, sort) => {
+  const sortedTasks = useMemo(() => {
+    if (sort) {
+      return [...tasks].sort((a, b) => a[sort].localCompare(b[sort]));
+    }
+    return tasks;
+  }, [sort, tasks]);
+
+  return sortedTasks;
+};
+
+
+export const useTasks = (tasks, sort, query) => {
+    const sortedTasks = useSortedTasks(tasks, sort);
+    const sortAndSearchedTasks = useMemo(() => {
+        return sortedTasks.filter((task) =>
+          task.title.toLowerCase().includes(query.toLowerCase())
+        );
+      }, [query, sortedTasks]);
+      return sortAndSearchedTasks;
+}

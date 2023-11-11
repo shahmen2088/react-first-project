@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./styles/App.css";
+import TaskList from "./components/TaskList";
+import TaskForm from "./components/TaskForm";
+import TaskFilter from "./components/TaskFilter";
+import MyModal from "./UI/MyModale/MyModal";
+import MyButton from "./UI/button/MyButton";
+import { useTasks } from "./hooks/useTasks";
 
-function App() {
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState({ sort: "", query: "" });
+  const [modal, setModal] = useState(false);
+  const sortAndSearchedTasks = useTasks(tasks, filter.sort, filter.query);
+
+  const createTask = (newTask) => {
+    setTasks([...tasks, newTask]);
+    setModal(false);
+  };
+
+  
+
+  const soccessTask = (task) => {
+    setTasks(tasks.filter((t) => t.id !== task.id));
+  };
+
+  const removeTask = (task) => {
+    setTasks(tasks.filter((t) => t.id !== task.id));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MyButton style={{ marginTop: "30px" }} onClick={() => setModal(true)}>
+        Создать пользователя
+      </MyButton>
+      <MyModal visible={modal} setVisible={setModal}>
+        <TaskForm create={createTask} />
+      </MyModal>
+      <hr style={{ margin: "15px 0" }} />
+      <TaskFilter filter={filter} setFilter={setFilter} />
+      <TaskList
+        soccessTask={soccessTask}
+        removeTask={removeTask}
+        tasks={sortAndSearchedTasks}
+        title="Список задач!"
+      />
     </div>
   );
-}
+};
 
 export default App;
