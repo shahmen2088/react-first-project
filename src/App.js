@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles/App.css";
 import TaskList from "./components/TaskList";
 import TaskForm from "./components/TaskForm";
@@ -6,6 +6,8 @@ import TaskFilter from "./components/TaskFilter";
 import MyModal from "./UI/MyModale/MyModal";
 import MyButton from "./UI/button/MyButton";
 import { useTasks } from "./hooks/useTasks";
+import TaskService from "./API/TaskService";
+
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -13,12 +15,19 @@ const App = () => {
   const [modal, setModal] = useState(false);
   const sortAndSearchedTasks = useTasks(tasks, filter.sort, filter.query);
 
+  useEffect(() => {
+    fetchTasks();
+  }, [filter]);
+
   const createTask = (newTask) => {
     setTasks([...tasks, newTask]);
     setModal(false);
   };
 
-  
+  async function fetchTasks() {
+    const tasks = await TaskService.getAll();
+    setTasks(tasks);
+  }
 
   const soccessTask = (task) => {
     setTasks(tasks.filter((t) => t.id !== task.id));
@@ -30,6 +39,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <button onClick={fetchTasks}>GET TASKS</button>
       <MyButton style={{ marginTop: "30px" }} onClick={() => setModal(true)}>
         Создать пользователя
       </MyButton>
