@@ -3,7 +3,7 @@ import { useMemo } from "react";
 export const useSortedTasks = (tasks, sort) => {
   const sortedTasks = useMemo(() => {
     if (sort) {
-      return [...tasks].sort((a, b) => a[sort].localCompare(b[sort]));
+      return [...tasks].sort((a, b) => a[sort].localeCompare(b[sort]));
     }
     return tasks;
   }, [sort, tasks]);
