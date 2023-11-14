@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import MyInput from "../../UI/input/MyInput";
-import "./SimpleForm.module.css";
+import './SimpleForm.module.css';
 
 const SimpleForm = () => {
   const [name, setName] = useState("");

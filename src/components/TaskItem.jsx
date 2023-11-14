@@ -7,7 +7,7 @@ const TaskItem = (props) => {
       <div className="task__content">
         <h3 className="task__title">Название задачи:</h3>
         <p className="task__description">
-          <b>{props.number}. {props.task.title}</b>
+          <b>{props.task.id}. {props.task.title}</b>
         </p>
         <h4 className="task__title">Описание задачи:</h4>
         <p className="task__description"><em>{props.task.body}</em></p>
