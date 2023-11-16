@@ -4,3 +4,8 @@
   margin: 5px 0;
   border: 1px solid teal;
 }
+
+input {
+  border: none;
+  border-radius: 5px;
+}

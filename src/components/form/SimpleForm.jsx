@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MyInput from "../../UI/input/MyInput";
-import './SimpleForm.module.css';
+import cl from "./SimpleForm.module.css";
+import MyButton from "../../UI/button/MyButton";
 
 const SimpleForm = () => {
   const [name, setName] = useState("");
@@ -40,12 +41,12 @@ const SimpleForm = () => {
   const successMessage = () => {
     return (
       <div
-        className="success"
+        className='success'
         style={{
           display: submitted ? "" : "none",
         }}
       >
-        <h1>User {name} successfully registered!!</h1>
+        <h1 className={cl.message}>User {name} successfully registered!!</h1>
       </div>
     );
   };
@@ -54,34 +55,30 @@ const SimpleForm = () => {
   const errorMessage = () => {
     return (
       <div
-        className="error"
+        className={cl.message}
         style={{
           display: error ? "" : "none",
         }}
       >
-        <h1>Please enter all the fields</h1>
+        <h1 className={cl.message}>Please enter all the fields</h1>
       </div>
     );
   };
 
   return (
-    <div className="form">
-      <div>
-        <h1>User Registration</h1>
-      </div>
-
+    <div className={cl.myForm}>
       {/* Calling to the methods */}
-      <div className="messages">
-        {errorMessage()}
-        {successMessage()}
-      </div>
-      <form>
+      
+      <form className={cl.formInner}>
         <div>
-          <label className="label" htmlFor="name">
+          <h1 style={{color: '#333'}}>Авторизация</h1>
+        </div>
+        <div>
+          <label className={cl.myLabel} htmlFor="name">
             Name
           </label>
           <MyInput
-            className="input"
+            className={cl.myInput}
             type="text"
             id="name"
             value={name}
@@ -89,11 +86,11 @@ const SimpleForm = () => {
           />
         </div>
         <div>
-          <label className="label" htmlFor="email">
+          <label className={cl.myLabel} htmlFor="email">
             Email
           </label>
           <MyInput
-            className="input"
+            className={cl.myInput}
             type="email"
             id="email"
             value={email}
@@ -101,20 +98,24 @@ const SimpleForm = () => {
           />
         </div>
         <div>
-          <label className="label" htmlFor="password">
+          <label className={cl.myLabel} htmlFor="password">
             Password
           </label>
           <MyInput
-            className="input"
+            className={cl.myInput}
             type="password"
             id="password"
             value={password}
             onChange={handlePassword}
           />
         </div>
-        <button onClick={handleSubmit} className="btn" type="submit">
-          Submit
+        <button onClick={handleSubmit} className={cl.myBtn} type="submit">
+          Войти
         </button>
+        <div className={cl.message}>
+        {errorMessage()}
+        {successMessage()}
+      </div>
       </form>
     </div>
   );

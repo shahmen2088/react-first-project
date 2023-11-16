@@ -1,24 +1,23 @@
 import React from "react";
 import Tasks from "./pages/Tasks";
 import {
-  createBrowserRouter,
-  createRoutesFromElements,
+  BrowserRouter as Router,
+  Routes,
   Route,
-  RouterProvider,
+  BrowserRouter,
 } from "react-router-dom";
 import SimpleForm from "./components/form/SimpleForm";
+import MyHeader from "./UI/header/MyHeader";
 
 function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<SimpleForm />}>
-        <Route path="dashboard" element={<SimpleForm />} />
-      </Route>
-    )
-  );
-
   return (
-   <RouterProvider router={router} />
+    <BrowserRouter>
+      <MyHeader />
+      <Routes>
+        <Route path="auth" element={<SimpleForm />} />
+        <Route path="main" element={<Tasks />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

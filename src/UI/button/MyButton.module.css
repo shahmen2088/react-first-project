@@ -1,16 +1,16 @@
 .myBtn {
     padding: 5px 15px;
-    color: teal;
+    color: #333;
     font-size: 14px;
     background: transparent;
-    border: 1px solid teal;
+    border: 1px solid #8458B3;
     border-radius: 5px;
     cursor: pointer;
+    background: #fff;
 
-    transition: background .2s;
+    transition: background .1s;
 }
 
 .myBtn:hover {
-    color: black;
-    background: teal;
+    background: #a0d2eb;
 }

@@ -54,13 +54,11 @@ function Tasks() {
 
   return (
     <div className="App">
-      <MyButton style={{ marginTop: "30px" }} onClick={() => setModal(true)}>
-        Создать пользователя
-      </MyButton>
+      <MyButton style={{marginTop:'80px'}} onClick={() => setModal(true)}>Создать задачу</MyButton>
       <MyModal visible={modal} setVisible={setModal}>
         <TaskForm create={createTask} />
       </MyModal>
-      <hr style={{ margin: "15px 0" }} />
+
       <TaskFilter filter={filter} setFilter={setFilter} />
       {taskError && <h1>Произошла ошибка</h1>}
       {isTasksLoading ? (
