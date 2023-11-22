@@ -1,8 +1,9 @@
 import React from "react";
-import MyButton from "../button/MyButton";
 import { useEffect } from "react";
 import { useLocation, useNavigate, Outlet, Link } from "react-router-dom";
 import cl from "./MyHeader.module.css";
+
+
 
 const MyHeader = () => {
   const location = useLocation();
@@ -28,3 +29,5 @@ const MyHeader = () => {
 };
 
 export default MyHeader;
+
+

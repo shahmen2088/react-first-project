@@ -1,0 +1,18 @@
+.myAddBtn {
+  padding: 10px 15px;
+  width: 100%;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #8458B3;
+
+  transition: background 0.1s;
+}
+
+.myAddBtn:hover {
+    opacity: .8;
+}

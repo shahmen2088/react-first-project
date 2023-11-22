@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import MyInput from "../../UI/input/MyInput";
 import cl from "./SimpleForm.module.css";
-import MyButton from "../../UI/button/MyButton";
+
 
 const SimpleForm = () => {
   const [name, setName] = useState("");

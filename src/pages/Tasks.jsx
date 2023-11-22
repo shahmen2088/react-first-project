@@ -11,6 +11,7 @@ import Loader from "../UI/Loader/Loader";
 import { useFetching } from "../hooks/useFetching";
 import { getPageCount } from "../utils/pages";
 import Pagination from "../UI/pagination/Pagination";
+import AddButton from "../UI/button/AddButton";
 
 function Tasks() {
   const [tasks, setTasks] = useState([]);
@@ -54,7 +55,7 @@ function Tasks() {
 
   return (
     <div className="App">
-      <MyButton style={{marginTop:'80px'}} onClick={() => setModal(true)}>Создать задачу</MyButton>
+      <AddButton style={{marginTop:'80px'}} onClick={() => setModal(true)}>Создать задачу</AddButton>
       <MyModal visible={modal} setVisible={setModal}>
         <TaskForm create={createTask} />
       </MyModal>
@@ -76,7 +77,7 @@ function Tasks() {
           soccessTask={soccessTask}
           removeTask={removeTask}
           tasks={sortAndSearchedTasks}
-          title="Список задач!"
+          title="Список задач"
         />
       )}
       <Pagination totalPages={totalPages} changePage={changePage} page={page} />

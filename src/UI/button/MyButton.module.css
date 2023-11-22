@@ -3,14 +3,16 @@
     color: #333;
     font-size: 14px;
     background: transparent;
-    border: 1px solid #8458B3;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    background: #fff;
+    /* background: #8458B3;
+     */
+     background: #a0d2eb;
 
     transition: background .1s;
 }
 
 .myBtn:hover {
-    background: #a0d2eb;
+    background: #8458B3;
 }
