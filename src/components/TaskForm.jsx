@@ -9,7 +9,7 @@ const TaskForm = ({ create }) => {
   const addNewTask = (e) => {
     e.preventDefault();
     const newTask = {
-        ...task, id: Date.now()
+        ...task, id: Math.round(Date.now())
     };
     create(newTask);
     setTask({ title: "", body: "" });

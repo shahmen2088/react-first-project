@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import MyInput from "../../UI/input/MyInput";
 import cl from "./SimpleForm.module.css";
+import { AuthContext } from "../../context";
 
 
 const SimpleForm = () => {
@@ -27,6 +28,8 @@ const SimpleForm = () => {
     setSubmitted(false);
   };
 
+  const { isAuth, setIsAuth } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (name === "" || email === "" || password === "") {
@@ -34,6 +37,8 @@ const SimpleForm = () => {
     } else {
       setSubmitted(true);
       setError(false);
+      setIsAuth(true);
+      localStorage.setItem('auth', 'true')
     }
   };
 
@@ -41,7 +46,7 @@ const SimpleForm = () => {
   const successMessage = () => {
     return (
       <div
-        className='success'
+        className="success"
         style={{
           display: submitted ? "" : "none",
         }}
@@ -68,10 +73,10 @@ const SimpleForm = () => {
   return (
     <div className={cl.myForm}>
       {/* Calling to the methods */}
-      
+
       <form className={cl.formInner}>
         <div>
-          <h1 style={{color: '#333'}}>Авторизация</h1>
+          <h1 style={{ color: "#333" }}>Авторизация</h1>
         </div>
         <div>
           <label className={cl.myLabel} htmlFor="name">
@@ -113,9 +118,9 @@ const SimpleForm = () => {
           Войти
         </button>
         <div className={cl.message}>
-        {errorMessage()}
-        {successMessage()}
-      </div>
+          {errorMessage()}
+          {successMessage()}
+        </div>
       </form>
     </div>
   );

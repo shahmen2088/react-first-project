@@ -4,12 +4,13 @@ import TaskIdPage from "../pages/TaskIdPage";
 import Error from "../pages/Error";
 
 export const privetaRoutes = [
-  { path: "/main", element: Tasks },
+  { path: "*", element: Tasks },
   { path: "/tasks/:id", element: TaskIdPage },
-  { path: "*", element: Error },
+  { path: "/", element: Error },
 ];
 
 export const publicRoutes = [
+  { path: "/", element: SimpleForm },
   { path: "/auth", element: SimpleForm },
-  { path: "*", element: Error },
+  // { path: "*", element: Error },
 ];

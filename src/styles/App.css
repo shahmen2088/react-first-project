@@ -107,3 +107,44 @@ body {
 .page__inner {
   border: 1px solid teal;
 }
+
+.task__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 800px;
+
+  padding: 25px;
+  background-color: #a5a5a5;
+  border-radius: 10px;
+}
+
+.task__item-title {
+  margin-top: 70px;
+}
+
+.task__item-comm {
+  font-size: 20px;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid #6d6c6c;
+}
+
+.task__comm {
+  border: 1px solid #333;
+  padding: 10px;
+  margin-top: 5px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.task__item-name {
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+}

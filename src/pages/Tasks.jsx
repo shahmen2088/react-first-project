@@ -4,7 +4,6 @@ import TaskList from "../components/TaskList";
 import TaskForm from "../components/TaskForm";
 import TaskFilter from "../components/TaskFilter";
 import MyModal from "../UI/MyModale/MyModal";
-import MyButton from "../UI/button/MyButton";
 import { useTasks } from "../hooks/useTasks";
 import TaskService from "../API/TaskService";
 import Loader from "../UI/Loader/Loader";
@@ -21,9 +20,6 @@ function Tasks() {
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const sortAndSearchedTasks = useTasks(tasks, filter.sort, filter.query);
-
-  // let pagesArray = getPagesArray(totalPages);
-  // let pagesArray = usePagination(totalPages);
 
   const [fetchTasks, isTasksLoading, taskError] = useFetching(async () => {
     const response = await TaskService.getAll(limit, page);

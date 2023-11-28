@@ -23,24 +23,24 @@ const TaskIdPage = () => {
     fetchComments(params.id);
   }, []);
   return (
-    <div>
-      <h1 style={{ marginTop: "100px" }}>
-        Вы открыли страницу задачи с ID = {params.id}
+    <div className="task__item">
+      <h1 className="task__item-title">
+        Задача №{params.id}.
       </h1>
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
+        <div className="task__item-name">
           {task.id}. {task.title}
         </div>
       )}
-      <h1>Комментарии</h1>
+      <h1 className="task__item-comm">Комментарии</h1>
       {isComLoading ? (
         <Loader />
       ) : (
         <div>
           {comments.map((comm) => (
-            <div>
+            <div className="task__comm">
               <h5>{comm.email}</h5>
               <div>{comm.body}</div>
             </div>
