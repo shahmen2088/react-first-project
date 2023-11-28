@@ -6,7 +6,6 @@ import Error from "../pages/Error";
 export const privetaRoutes = [
   { path: "*", element: Tasks },
   { path: "/tasks/:id", element: TaskIdPage },
-  { path: "/", element: Error },
 ];
 
 export const publicRoutes = [
